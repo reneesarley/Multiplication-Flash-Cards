@@ -1,22 +1,32 @@
 'use strict';
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, Button, Alert} from 'react-native';
+import Game from './Game';
 
 
 export default class Setup extends Component <{}>{
   constructor(props){
     super(props);
   }
+
+_startGame = () => {
+  this.props.navigator.push({
+  title: 'Game',
+  component: Game,
+});
+}
   render(){
     console.log("setup is working")
     return(
       <View style={styles.container}>
-        <Text style={styles.baseText}>
-          <Text style={styles.titleText}>
-          Get started
-          </Text>
+        <Text>
+        Set up  your game
         </Text>
+        <Button
+          onPress={this._startGame}
+          title="START"
+        />
       </View>
     );
   }
@@ -24,7 +34,7 @@ export default class Setup extends Component <{}>{
 
 const styles = StyleSheet.create({
   container: {
-    margin: 50,
+    margin: 75,
      alignItems: 'center',
   },
   baseText: {
