@@ -1,36 +1,51 @@
-import React, { Component } from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+'use strict';
 
+import React, {Component} from 'react';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  Button,
+  ActivityIndicator,
+  Image,
+  NavigatorIOS,
+  TouchableWithoutFeedback
+} from 'react-native';
 
 export default class Game extends Component<{}> {
-  constructor(props){
+  constructor(props) {
     super(props);
   }
+
+  _selectNumber = () =>{
+    console.log("the number was pressed")
+  }
+
   render() {
+    console.log(this.props.test)
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Game is working</Text>
+        <TouchableWithoutFeedback>
+          <Text style = {styles.button}
+            onPress={this._selectNumber}>
+             1s
+          </Text>
+       </TouchableWithoutFeedback>
       </View>
-    );
+    )
   }
 }
 
-
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    margin: 50,
+     alignItems: 'center',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  button: {
+   borderWidth: 1,
+   padding: 25,
+   borderColor: 'black',
+   backgroundColor: 'red'
+ }
 });
