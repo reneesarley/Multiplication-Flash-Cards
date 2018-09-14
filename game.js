@@ -12,10 +12,16 @@ import {
   NavigatorIOS,
   TouchableWithoutFeedback
 } from 'react-native';
+import Equation from './Equation';
 
 export default class Game extends Component<{}> {
   constructor(props) {
     super(props);
+    this.state = {
+      timesTableOptions: [1, 2, 3],
+      currentEquation: [1, 2],
+      posibleSolutions: [1, 2, 4, 5]
+    };
   }
 
   _selectNumber = () =>{
@@ -26,12 +32,13 @@ export default class Game extends Component<{}> {
     console.log(this.props.test)
     return (
       <View style={styles.container}>
-        <TouchableWithoutFeedback>
-          <Text style = {styles.button}
-            onPress={this._selectNumber}>
-             1s
-          </Text>
-       </TouchableWithoutFeedback>
+      <Text>
+      <Equation style={styles.problem}
+      factorOne= {this.state.currentEquation[0]}
+      factorTwo= {this.state.currentEquation[1]}
+      />
+      </Text>
+      <Text>Possible solutions</Text>
       </View>
     )
   }
@@ -39,13 +46,14 @@ export default class Game extends Component<{}> {
 
 const styles = StyleSheet.create({
   container: {
-    margin: 50,
+    margin: 100,
      alignItems: 'center',
   },
-  button: {
-   borderWidth: 1,
-   padding: 25,
-   borderColor: 'black',
-   backgroundColor: 'red'
- }
+  problem: {
+    backgroundColor: 'grey',
+    margin: 75,
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'black',
+  }
 });
