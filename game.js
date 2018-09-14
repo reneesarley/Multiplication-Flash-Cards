@@ -13,6 +13,7 @@ import {
   TouchableWithoutFeedback
 } from 'react-native';
 import Equation from './Equation';
+import Solution from './Solution';
 
 export default class Game extends Component<{}> {
   constructor(props) {
@@ -36,6 +37,11 @@ export default class Game extends Component<{}> {
       <Equation style={styles.problem}
       factorOne= {this.state.currentEquation[0]}
       factorTwo= {this.state.currentEquation[1]}
+      />
+      </Text>
+      <Text>
+      <Solution style={styles.problem}
+      solution= {this.state.posibleSolutions[0]}
       />
       </Text>
       <Text>Possible solutions</Text>
